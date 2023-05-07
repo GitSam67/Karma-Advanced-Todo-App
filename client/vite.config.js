@@ -6,17 +6,17 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/register': "http://localhost:8000",
-      '/login': "http://localhost:8000",
-      '/logout': "http://localhost:8000",
-      '/userprofile': "http://localhost:8000",
-      '/todos': "http://localhost:8000",
-      '/count': "http://localhost:8000",
-      '/deleteDueTodo': "http://localhost:8000",
-      '/submitTask': "http://localhost:8000",
-      '/imgUpload': "http://localhost:8000",
-      '/imgRemove': "http://localhost:8000",
-      '/sendEmail': "http://localhost:8000",
+      '/register': "https://karma-server.onrender.com",
+      '/login': "https://karma-server.onrender.com",
+      '/logout': "https://karma-server.onrender.com",
+      '/userprofile': "https://karma-server.onrender.com",
+      '/todos': "https://karma-server.onrender.com",
+      '/count': "https://karma-server.onrender.com",
+      '/deleteDueTodo': "https://karma-server.onrender.com",
+      '/submitTask': "https://karma-server.onrender.com",
+      '/imgUpload': "https://karma-server.onrender.com",
+      '/imgRemove': "https://karma-server.onrender.com",
+      '/sendEmail': "https://karma-server.onrender.com",
     }
   }
 })
