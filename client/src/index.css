@@ -1,0 +1,124 @@
+* {
+    scroll-behavior: smooth;
+}
+
+#todos {
+    height: 100vh;
+    overflow: auto
+}
+
+#add {
+    transition: all .1s ease-in-out;
+}
+
+#add:hover {
+    scale: 1.1;
+}
+
+#close:hover {
+    scale: 1.1;
+}
+
+#addTodo {
+    transition: all .1s ease-in-out;
+}
+
+#addTodo:hover {
+    scale: 1.1;
+}
+
+#editTodo {
+    transition: all .1s ease-in-out;
+}
+
+#editTodo:hover {
+    scale: 1.1;
+}
+
+.ModalContainer {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+#show:hover span {
+    visibility: visible;
+}
+
+.drop {
+    top: 52px;
+    box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.1);
+}
+
+#pie{
+    position: relative;
+    height: 270px;
+    width: 270px;
+    overflow: hidden;
+}
+
+#content {
+    z-index: 1;
+}
+
+#pie::before{
+    content:"";
+    position: absolute;
+    height: 140%;
+    width: 378px;
+    background: linear-gradient(indigo,magenta);
+    animation: rotate 1s linear infinite;
+}
+
+#pie::after {
+    content: "";
+    position: absolute;
+    transform: translate(15px,15px);
+    height: 220px;
+    width: 220px;
+    border-radius: 100%;
+    inset: 7px;
+    background: white;
+}
+
+@media (max-width:700px) {
+    #pie {
+        height: 240px;
+        width: 240px;
+    }
+    #pie::after {
+        height: 200px;
+        width: 200px;
+        transform: translate(13px,13px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(350deg);
+    }
+}
+
+.spinner {
+    animation: rotate 1s ease-in-out infinite;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-track{
+    background: white;
+}
+
+::-webkit-scrollbar-thumb{
+    background: linear-gradient(rgb(5, 128, 217), rgb(5, 128, 217));
+    border-radius: 25px; 
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
