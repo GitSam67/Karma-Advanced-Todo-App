@@ -32,7 +32,7 @@ export default function Contact() {
         </div>
         <div className="flex md:flex-row flex-col">
           <div className="lg:w-1/2 md:w-1/3 w-full items-center justify-center rounded-lg overflow-hidden md:pl-20 pb-3 pr-0 flex items-end justify-start relative">
-            <img class="w-full h-96 rounded-lg" src="../src/assets/contact.jpg" alt="contact" />
+            <img class="w-full h-96 rounded-lg" src="/assets/contact.jpg" alt="contact" />
           </div>
           <form
             onSubmit={sendEmail}

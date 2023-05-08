@@ -127,7 +127,7 @@ export default function SignUp() {
         <section id="signUp" className="bg-blue-100 pb-20">
             <div className='md:flex items-center justify-start py-4 md:px-10 px-7 w-full top-0 left-0 font-bold text-2xl cursor-pointer font-[Poppins]'>
                 <NavLink className="flex flex-row items-center" to="/">
-                    <img src="../src/assets/logo.jpeg" className="mainlogo md:h-10 md:w-10 h-7 h-7 rounded-full mx-2" alt="logo" />
+                    <img src="/assets/logo.jpeg" className="mainlogo md:h-10 md:w-10 h-7 h-7 rounded-full mx-2" alt="logo" />
                     <span className="text-blue-700 md:text-3xl text-2xl font-sans">Karma</span>
                 </NavLink>
             </div>
@@ -275,7 +275,7 @@ export default function SignUp() {
                     </div>
 
                     <div className="md:w-1/2 w-full md:flex hidden items-center justify-center rounded-lg pb-3 object-cover">
-                        <img class="rounded-lg" src="../src/assets/login2.jpg" alt="contact" />
+                        <img class="rounded-lg" src="/assets/login2.jpg" alt="contact" />
                     </div>
 
                 </div>

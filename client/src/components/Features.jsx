@@ -7,7 +7,7 @@ export default function Features() {
         <h1 className="title-font font-mono font-black text-3xl mb-10 mt-0 md:text-4xl text-violet-600 text-center">Our Salient Features</h1>
         <div className="lg:flex-grow w-full mb-5 md:mb-20 py-20 rounded-lg flex md:flex-row flex-col bg-blue-100 items-center">
             <div className="md:w-1/2 object-cover md:pl-5 md:px-0 px-5">
-                <img className="rounded-lg h-80 shadow-2xl" src="../src/assets/ftr1.jpg" alt="ftr" />
+                <img className="rounded-lg h-80 shadow-2xl" src="/assets/ftr1.jpg" alt="ftr" />
             </div>
           <div className="md:w-1/2 w-full px-10 md:mt-0 mt-10">
             <h1 className="title-font text-3xl md:text-3xl font-bold">Task Organization & Scheduling</h1>
@@ -25,12 +25,12 @@ export default function Features() {
             </p>
           </div>
           <div className="md:w-1/2 w-full object-cover md:pl-8 md:px-0 px-5">
-                <img className="rounded-lg h-80 shadow-2xl" src="../src/assets/ftr2.avif" alt="ftr" />
+                <img className="rounded-lg h-80 shadow-2xl" src="/assets/ftr2.avif" alt="ftr" />
             </div>
         </div>
         <div className="lg:flex-grow w-full mb-5 md:mb-20 py-20 rounded-lg flex md:flex-row flex-col bg-blue-100 items-center">
             <div className="md:w-1/2 w-full object-cover md:pl-10 md:px-0 px-5">
-                <img className="rounded-lg h-80 shadow-2xl" src="../src/assets/ftr3.png" alt="ftr" />
+                <img className="rounded-lg h-80 shadow-2xl" src="/assets/ftr3.png" alt="ftr" />
             </div>
           <div className="md:w-1/2 w-full px-10 md:mt-0 mt-10">
           <h1 className="title-font text-3xl md:text-3xl font-bold">Performance Tracking</h1>
@@ -47,7 +47,7 @@ export default function Features() {
             </p>
           </div>
           <div className="md:w-1/2 w-full object-cover md:pr-5 px-5">
-                <img className="rounded-lg h-80 shadow-2xl" src="../src/assets/fttr4.jpg" alt="ftr" />
+                <img className="rounded-lg h-80 shadow-2xl" src="/assets/fttr4.jpg" alt="ftr" />
             </div>
         </div>
       </div>

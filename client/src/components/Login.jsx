@@ -50,7 +50,7 @@ export default function Login() {
         <section id="login" className="bg-blue-100 h-screen">
             <div className='md:flex items-center justify-start py-4 md:px-10 px-7 w-full top-0 left-0 font-bold text-2xl cursor-pointer font-[Poppins]'>
                 <NavLink className="flex flex-row items-center" to="/">
-                    <img src="../src/assets/logo.jpeg" className="mainlogo md:h-10 md:w-10 h-7 w-7 rounded-full mx-2" alt="logo" />
+                    <img src="/assets/logo.jpeg" className="mainlogo md:h-10 md:w-10 h-7 w-7 rounded-full mx-2" alt="logo" />
                     <span className="text-blue-700 md:text-3xl text-2xl font-sans">Karma</span>
                 </NavLink>
             </div>
@@ -64,7 +64,7 @@ export default function Login() {
                 <div className="rounded-lg flex flex-row w-5/6 pb-10 pt-5">
                     
                     <div className="md:w-1/2 sm:w-full md:flex hidden items-center justify-center object-cover rounded-lg pb-3 object-cover">
-                        <img className="rounded-lg shadow-xl" src="../src/assets/login3.avif" alt="contact" />
+                        <img className="rounded-lg shadow-xl" src="/assets/login3.avif" alt="contact" />
                     </div>
 
                     <div className="md:w-1/2 w-full flex flex-col md:py-8 mt-8 md:mt-0 md:px-5 md:mx-5 md:ml-20 justify-center">

@@ -190,7 +190,7 @@ export default function Todos() {
                     <div className="w-full flex items-center">
                     <div className='md:w-1/3 w-1/2 font-bold text-3xl cursor-pointer flex items-center text-left'>
                         <NavLink className="flex flex-row items-center" to="/">
-                            <img src="../src/assets/logo.jpeg" className="mainlogo h-10 w-10 rounded-full mr-3" alt="logo" />
+                            <img src="/assets/logo.jpeg" className="mainlogo h-10 w-10 rounded-full mr-3" alt="logo" />
                             <span className="text-blue-800 font-sans">Karma</span>
                         </NavLink>
                     </div>
@@ -203,7 +203,7 @@ export default function Todos() {
                         <div className="w-fit h-fit flex flex-row items-center justify-end">
                             <div onClick={() => setDrop(!drop)} ref={dropRef} className="flex flex-row items-center justify-center mx-2 cursor-pointer">
                                 <button className="relative rounded-full w-fit h-fit object-cover mx-1">
-                                    {userData.img == "userImage" ? <img src="../src/assets/profile2.jpg" className="w-10 h-10 rounded-full" alt="userimg" /> : <img src={imagePath} className="w-10 h-10 rounded-full" alt="userimg" />}
+                                    {userData.img == "userImage" ? <img src="/assets/profile2.jpg" className="w-10 h-10 rounded-full" alt="userimg" /> : <img src={imagePath} className="w-10 h-10 rounded-full" alt="userimg" />}
                                     {drop && <Dropdown />}
                                 </button>
                                 <i className="fa fa-caret-down"></i>

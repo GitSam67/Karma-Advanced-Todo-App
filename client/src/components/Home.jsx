@@ -58,7 +58,7 @@ export default function Home() {
         </div>
         
         <div className="md:w-1/2 w-full flex items-center justify-center object-cover rounded-lg pb-3 object-cover">
-            <img className="rounded-lg h-96 shadow-2xl" src="../src/assets/home1.jpg" alt="contact" />
+            <img className="rounded-lg h-96 shadow-2xl" src="/assets/home1.jpg" alt="home" />
         </div>
 
       </div>
