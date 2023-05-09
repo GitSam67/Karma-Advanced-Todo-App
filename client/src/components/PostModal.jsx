@@ -33,7 +33,7 @@ function PostModal({ closeModal, setTodos, pId, setPId, title, setTitle, desc, s
         }
         else {
 
-            const res = await fetch("/todos", {
+            const res = await fetch(`${import.meta.env.VITE_BASE_URL}/todos`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ function PostModal({ closeModal, setTodos, pId, setPId, title, setTitle, desc, s
 
             if(res.status === 200) {
 
-                const response = await fetch("/todos/"+ userId, {
+                const response = await fetch(`${import.meta.env.VITE_BASE_URL}/todos/`+ userId, {
                     method: "GET",
                     headers: {
                         Accept: "application/json",

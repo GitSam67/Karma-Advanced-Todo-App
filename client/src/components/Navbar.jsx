@@ -13,7 +13,7 @@ export default function Navbar() {
   
   const displayUser = async () => {
      try { 
-      const res = await fetch("/userprofile", {
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/userprofile`, {
           method: "GET",
           headers: {
             Accept: "application/json",

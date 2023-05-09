@@ -15,7 +15,7 @@ function ImgModal({ closeModal, image, imageBlob, userId}) {
         formData.append("image", image, image.name);
         formData.append("userId", userId);
 
-        const res = await fetch("/imgUpload", {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/imgUpload`, {
             method: "PUT",
             body: formData
         });

@@ -10,7 +10,7 @@ function DeleteModal({ closeModal, todoData, todos, setTodos, todoId, setTodoId,
     const deleteTask = async (e) => {
         e.preventDefault();
 
-        const res = await fetch("/todos", {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/todos`, {
             method:"DELETE",
             headers: {
                 "Content-Type": "application/json"

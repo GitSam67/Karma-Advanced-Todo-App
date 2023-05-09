@@ -27,7 +27,7 @@ function EditModal({ closeModal, todoData, todos, setTodos, todoId, setTodoId, p
     const editTask = async (e) => {
         e.preventDefault();
 
-        const res = await fetch("/todos", {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/todos`, {
             method: "PUT",
                 headers: {
                     'Content-Type': 'application/json'

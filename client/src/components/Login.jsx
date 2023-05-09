@@ -15,7 +15,7 @@ export default function Login() {
         try {
             setSpinner(true);
 
-            const res = await fetch('/login', {
+            const res = await fetch(`${import.meta.env.VITE_BASE_URL}/login`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

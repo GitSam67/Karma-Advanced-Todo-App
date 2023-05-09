@@ -10,7 +10,7 @@ function SubmitModal({ closeModal, todoData, todos, setTodos, todoId, setTodoId,
     const submitTask = async (e) => {
         e.preventDefault();
 
-        const res = await fetch("/submitTask", {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/submitTask`, {
             method:"DELETE",
             headers: {
                 "Content-Type": "application/json"

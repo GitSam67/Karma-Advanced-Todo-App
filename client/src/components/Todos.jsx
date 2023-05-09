@@ -33,7 +33,7 @@ export default function Todos() {
 
     const displayTask = async () => {
         try {
-            const res = await fetch("/userprofile", {
+            const res = await fetch(`${import.meta.env.VITE_BASE_URL}/userprofile`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -49,7 +49,7 @@ export default function Todos() {
                 setUserId(userdata._id);
                 setImagePath(import.meta.env.VITE_IMG_PATH+userdata.img);
 
-                const response = await fetch("/todos/" + userdata._id, {
+                const response = await fetch(`${import.meta.env.VITE_BASE_URL}/todos/` + userdata._id, {
                     method: "GET",
                     headers: {
                         Accept: "application/json",
@@ -75,7 +75,7 @@ export default function Todos() {
     }, []);
 
     const deleteDueTask = async (dueTaskId) => {
-        const res = await fetch("/deleteDueTodo", {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/deleteDueTodo`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"

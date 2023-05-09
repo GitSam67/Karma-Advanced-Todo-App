@@ -10,7 +10,7 @@ function RemovePicModal({ closeModal, image, userId}) {
     const remove = async (e) => {
         e.preventDefault();
         
-        const res = await fetch("/imgRemove", {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/imgRemove`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

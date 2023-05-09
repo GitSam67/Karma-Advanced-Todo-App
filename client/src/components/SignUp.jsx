@@ -29,7 +29,7 @@ export default function SignUp() {
         else {
             setSpinner(true);
 
-            const res = await fetch("/register", {
+            const res = await fetch(`${import.meta.env.VITE_BASE_URL}/register`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ export default function SignUp() {
                 setOpenModal(true);
 
                 // Sending Registration Email to user ...
-                const emailResponse = await fetch("/sendEmail", {
+                const emailResponse = await fetch(`${import.meta.env.VITE_BASE_URL}/sendEmail`, {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json'

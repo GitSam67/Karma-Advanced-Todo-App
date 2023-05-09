@@ -26,7 +26,7 @@ function ProfileModal({ closeModal, userData, userId }) {
 
     const editProfile = async () => {
 
-        const res = await fetch("/userprofile", {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}/userprofile`, {
             method: "PUT",
                 headers: {
                     'Content-Type': 'application/json'

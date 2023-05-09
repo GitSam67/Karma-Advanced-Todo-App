@@ -23,7 +23,7 @@ export default function Profile() {
 
     const displayProfile = async () => {
         try {
-            const res = await fetch("/userprofile", {
+            const res = await fetch(`${import.meta.env.VITE_BASE_URL}/userprofile`, {
                 method: "GET",
                 headers: {
                     Accept: "application/json",
@@ -39,7 +39,7 @@ export default function Profile() {
                 setUserData(data);
                 setImagePath(import.meta.env.VITE_IMG_PATH+data.img);
 
-                const response = await fetch("/count/" + data._id, {
+                const response = await fetch(`${import.meta.env.VITE_BASE_URL}/count/` + data._id, {
                     method: "GET",
                     headers: {
                         Accept: "application/json",
