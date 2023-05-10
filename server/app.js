@@ -5,11 +5,13 @@ const mongoose = require("mongoose");
 const userRouter = require("./routes/userRouter");
 const todoRouter = require("./routes/todoRouter");
 const app = express();
+const cors = require("cors");
 const PORT = process.env.PORT || 8000;
 
 dotenv.config({path:"./config.env"});
 require("./database/connect");
 
+app.use(cors());
 app.use(express.json());
 app.use(cookieparser());
 app.use("/uploads", express.static('uploads'));
