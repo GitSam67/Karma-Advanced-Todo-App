@@ -11,12 +11,10 @@ const PORT = process.env.PORT || 8000;
 dotenv.config({path:"./config.env"});
 require("./database/connect");
 
-const options = {
+app.use(cors({
     credentials: true,
-    origin: "https://rococo-caramel-b187dc.netlify.app/"
-};
-
-app.use(cors(options));
+    origin: ["https://rococo-caramel-b187dc.netlify.app"]
+}));
 app.use(express.json());
 app.use(cookieparser());
 app.use("/uploads", express.static('uploads'));
