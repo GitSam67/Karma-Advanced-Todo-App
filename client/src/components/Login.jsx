@@ -25,15 +25,14 @@ export default function Login() {
                 }) 
             });
 
-            if(res.status === 400 || res.status === 422 || !res) {
-                setSpinner(false);
-                alert("Invalid Credentials..!! Try again with correct one");
-            }
-
-            else {
+            if (res.status === 200) {
                 setOpenModal(true);
                 setEmail("");
                 setPassword("");
+            }
+            else {
+                setSpinner(false);
+                alert("Invalid Credentials..!! Try again with correct one");
             }
         }
         catch(err) {
