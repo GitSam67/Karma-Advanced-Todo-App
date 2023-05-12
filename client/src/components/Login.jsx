@@ -22,7 +22,8 @@ export default function Login() {
                 },
                 body: JSON.stringify({
                     email, password
-                }) 
+                }),
+                credentials: "include" 
             });
 
             if (res.status === 200) {
