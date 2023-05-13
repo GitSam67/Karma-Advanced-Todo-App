@@ -182,7 +182,7 @@ Router.post("/sendEmail", async (req,res) => {
 });
 
 Router.put("/imgUpload", auth, upload.single("image"), async (req,res) => {
-    console.log(req);
+    console.log(req.userId);
     const user = await User.findOne({ _id: req.userId });
     user.img = (req.file) ? req.file.filename : "userImage";
     const file = await user.save();
