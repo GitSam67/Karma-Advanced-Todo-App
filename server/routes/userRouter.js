@@ -99,10 +99,12 @@ Router.post("/login", async (req, res) => {
 
             res.cookie('jwt', refresh_token, {
                 maxAge: new Date(Date.now() + 1000*60*60*24),
+                httpOnly: true,
+                secure: true
             });
 
             console.log(req.cookies);
-            if(req.cookies.jwt) {
+            if(req.cookies) {
                 console.log("User logged in successfully");
                 return res.status(200).redirect("/");
             }
