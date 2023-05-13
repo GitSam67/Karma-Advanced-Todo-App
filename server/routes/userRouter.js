@@ -122,7 +122,10 @@ Router.post("/login", async (req, res) => {
 
 Router.post("/logout", auth, async (req,res)=>{
     try {
-        res.clearCookie('jwt');
+        res.clearCookie('jwt', { 
+            domain: 'https://rococo-caramel-b187dc.netlify.app', 
+            path: '/'
+        });
         console.log("User logged out of the system...");
         return res.status(200).redirect("/");
     } catch(err) {
