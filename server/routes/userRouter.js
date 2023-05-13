@@ -123,11 +123,10 @@ Router.post("/login", async (req, res) => {
 Router.post("/logout", auth, async (req,res)=>{
     try {
         res.clearCookie('jwt');
-        await req.user.save();
         console.log("User logged out of the system...");
-        res.status(200).redirect("/");
+        return res.status(200).redirect("/");
     } catch(err) {
-        res.status(500).send(err);
+        return res.status(500).send(err);
     }
 });
 
@@ -135,10 +134,10 @@ Router.get("/userprofile", auth, async (req,res)=>{
     console.log("User profile");
     if (req.user == "token expired" || res.status == 406) {
         console.log(req.user);
-        res.status(406).send(req.user);
+        return res.status(406).send(req.user);
     }
     else
-        res.status(200).send(req.user);
+        return res.status(200).send(req.user);
 });
 
 Router.put("/userprofile", auth, async (req,res)=> {
