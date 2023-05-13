@@ -100,7 +100,8 @@ Router.post("/login", async (req, res) => {
             res.cookie('jwt', refresh_token, {
                 maxAge: new Date(Date.now() + 1000*60*60*24),
                 httpOnly: true,
-                secure: true
+                secure: true,
+                sameSite: 'none'
             });
 
             console.log(req.cookies);
