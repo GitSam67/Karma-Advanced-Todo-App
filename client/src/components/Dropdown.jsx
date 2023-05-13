@@ -6,11 +6,13 @@ function Dropdown() {
 
   const Navigate = useNavigate();
 
-  const logout = async () => {
+  const logout = async (e) => {
+    e.preventDefault();
+
     try {
 
       const res = await fetch(`${import.meta.env.VITE_BASE_URL}/logout`, {
-        method: "GET",
+        method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
@@ -20,7 +22,7 @@ function Dropdown() {
 
       console.log(res);
 
-      if (res) {
+      if (res.status === 200) {
         Navigate("/");
         window.location.reload(false);
       }
