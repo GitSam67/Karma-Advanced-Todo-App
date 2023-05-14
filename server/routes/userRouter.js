@@ -99,6 +99,7 @@ Router.post("/login", async (req, res) => {
 
             res.cookie('jwt', refresh_token, {
                 maxAge: new Date(Date.now() + 1000*60*60*24),
+                httpOnly: true,
                 secure: true,
                 sameSite: 'none'
             });
@@ -120,12 +121,9 @@ Router.post("/login", async (req, res) => {
 });
 
 Router.post("/logout", async (req,res)=>{
-    res.clearCookie('jwt', "" ,{
-        maxAge: 0,
+    res.clearCookie('jwt', {
         domain: "https://karma-server.onrender.com",
         path: '/',
-        secure: true,
-        sameSite: 'none',
     });
     if(!req.cookies.jwt) {
         console.log("User logged out of the system...");
