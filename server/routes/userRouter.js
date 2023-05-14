@@ -99,7 +99,6 @@ Router.post("/login", async (req, res) => {
 
             res.cookie('jwt', refresh_token, {
                 maxAge: new Date(Date.now() + 1000*60*60*24),
-                httpOnly: true,
                 secure: true,
                 sameSite: 'none'
             });
@@ -121,9 +120,8 @@ Router.post("/login", async (req, res) => {
 });
 
 Router.post("/logout", async (req,res)=>{
-    res.cookie('jwt', "" ,{
+    res.clearCookie('jwt', "" ,{
         maxAge: 0,
-        httpOnly: true,
         secure: true,
         sameSite: 'none',
     });
