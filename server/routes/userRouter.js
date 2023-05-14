@@ -122,7 +122,7 @@ Router.post("/login", async (req, res) => {
 
 Router.get("/logout", auth, async (req,res)=>{
     try {
-        res.cookie('jwt', {
+        res.setHeader('cookie', 'jwt=', {
         domain: "https://karma-server.onrender.com",
         path: '/',
         maxAge: 0,
