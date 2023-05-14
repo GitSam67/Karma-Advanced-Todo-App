@@ -120,20 +120,17 @@ Router.post("/login", async (req, res) => {
     }
 });
 
-Router.get("/logout", async (req,res)=>{
-    try {
-        res.clearCookie('jwt', {
+Router.post("/logout", async (req,res)=>{
+    res.clearCookie('jwt', "" ,{
         domain: ".karma-server.onrender.com",
         path: '/',
+        maxAge: 0,
         httpOnly: true,
         secure: true,
-        sameSite: 'none'
+        sameSite: 'none',
     });
-        console.log("User logged out of the system...");
-        return res.status(200).end("Success");
-    } catch(err) {
-        return res.status(500).send(err);
-    }
+    console.log("User logged out of the system...");
+    return res.sendStatus(200);
 });
 
 Router.get("/userprofile", auth, async (req,res)=>{
