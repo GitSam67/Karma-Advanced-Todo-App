@@ -98,7 +98,7 @@ Router.post("/login", async (req, res) => {
             console.log("Refresh token: \n" + refresh_token);
 
             res.cookie('jwt', refresh_token, {
-                maxAge: new Date(Date.now() + 1000*60*60*24),
+                maxAge: 0,
                 httpOnly: true,
                 secure: true,
                 sameSite: 'none'
