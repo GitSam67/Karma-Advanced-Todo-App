@@ -13,7 +13,7 @@ function Dropdown() {
 
       const res = await fetch(`${import.meta.env.VITE_BASE_URL}/logout`, {
         method: "GET",
-        credentials: "include",
+        credentials: "same-origin",
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json",
