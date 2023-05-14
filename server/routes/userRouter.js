@@ -18,7 +18,7 @@ const transporter = nodemailer.createTransport({
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "../server/uploads/");
+        cb(null, "server/uploads/");
     },
     filename: (req, file, cb) => {
         cb(null, Date.now()+file.originalname );
@@ -122,10 +122,7 @@ Router.post("/login", async (req, res) => {
 
 Router.post("/logout", auth, async (req,res)=>{
     try {
-        res.clearCookie('jwt', { 
-            domain: 'https://rococo-caramel-b187dc.netlify.app', 
-            path: '/'
-        });
+        res.clearCookie('jwt', {path: '/'});
         console.log("User logged out of the system...");
         return res.status(200).redirect("/");
     } catch(err) {
