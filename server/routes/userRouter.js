@@ -123,7 +123,7 @@ Router.post("/login", async (req, res) => {
 Router.get("/logout", auth, async (req,res)=>{
     try {
         res.clearCookie('jwt', {
-        domain: "https://rococo-caramel-b187dc.netlify.app/",
+        domain: "https://karma-server.onrender.com",
         path: '/',
         maxAge: 0,
         httpOnly: true,
