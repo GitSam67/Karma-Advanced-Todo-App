@@ -12,13 +12,17 @@ function Dropdown() {
     try {
 
       const res = await fetch(`${import.meta.env.VITE_BASE_URL}/logout`, {
-        method: "POST",
-        credentials: "include"
+        method: "DELETE",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+      },
       });
 
       console.log(res);
 
-      if (res.status === 2000) {
+      if (res.status === 200) {
         Navigate("/");
         window.location.reload(false);
       }

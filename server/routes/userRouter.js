@@ -120,7 +120,7 @@ Router.post("/login", async (req, res) => {
     }
 });
 
-Router.post("/logout", auth, async (req,res)=>{
+Router.delete("/logout", auth, async (req,res)=>{
     try {
         res.clearCookie('jwt', {path:'/', maxAge:0});
         console.log("User logged out of the system...");
