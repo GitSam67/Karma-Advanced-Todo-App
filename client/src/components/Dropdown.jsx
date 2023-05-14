@@ -22,7 +22,7 @@ function Dropdown() {
 
       console.log(res);
 
-      if (res.status === 20000) {
+      if (res.status === 200) {
         Navigate("/");
         window.location.reload(false);
       }
