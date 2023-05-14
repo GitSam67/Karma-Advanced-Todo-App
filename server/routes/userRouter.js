@@ -97,18 +97,17 @@ Router.post("/login", async (req, res) => {
             let refresh_token = await user.generateRefreshToken()
             console.log("Refresh token: \n" + refresh_token);
 
-            res.cookie('jwt', refresh_token, {
-                maxAge: new Date(Date.now() + 1000*60*60*24),
-                httpOnly: true,
-                secure: true,
-                sameSite: 'none'
-            });
+            // res.cookie('jwt', refresh_token, {
+            //     maxAge: new Date(Date.now() + 1000*60*60*24),
+            //     httpOnly: true,
+            //     secure: true,
+            //     sameSite: 'none'
+            // });
 
-            console.log(req.cookies);
-            if(req.cookies) {
-                console.log("User logged in successfully");
-                return res.status(200).redirect("/");
-            }
+            localStorage.setItem('jwt', refresh_token);
+
+            console.log("User logged in successfully");
+            return res.status(200).redirect("/");
         }
         else {
             console.log("User login Unsuccessfull");
@@ -121,16 +120,14 @@ Router.post("/login", async (req, res) => {
 });
 
 Router.post("/logout", async (req,res)=>{
-    res.clearCookie('jwt', {
-        domain: "https://karma-server.onrender.com",
-        path: '/',
-    });
-    if(!req.cookies.jwt) {
+    try {
+        localStorage.removeItem('jwt');
         console.log("User logged out of the system...");
         return res.sendStatus(200);
     }
-    else
+    catch(err) {
         return res.sendStatus(400);
+    }
 });
 
 Router.get("/userprofile", auth, async (req,res)=>{
