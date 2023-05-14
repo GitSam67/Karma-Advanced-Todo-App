@@ -98,7 +98,9 @@ Router.post("/login", async (req, res) => {
             console.log("Refresh token: \n" + refresh_token);
 
             res.cookie('jwt', refresh_token, {
-                maxAge: 0,
+                maxAge: new Date(Date.now() + 1000*60*60*24),
+                domain: "https://karma-server.onrender.com",
+                path: '/',
                 httpOnly: true,
                 secure: true,
                 sameSite: 'none'
