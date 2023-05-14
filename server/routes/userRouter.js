@@ -122,7 +122,12 @@ Router.post("/login", async (req, res) => {
 
 Router.post("/logout", auth, async (req,res)=>{
     try {
-        res.clearCookie('jwt', {path: '/'});
+        res.clearCookie('jwt', {
+            path: '/',
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none'
+        });
         console.log("User logged out of the system...");
         return res.status(200).redirect("/");
     } catch(err) {
