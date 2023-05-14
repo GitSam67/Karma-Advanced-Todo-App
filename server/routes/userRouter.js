@@ -124,7 +124,7 @@ Router.get("/logout", auth, async (req,res)=>{
     try {
         res.clearCookie('jwt', {path:'/', maxAge:0});
         console.log("User logged out of the system...");
-        return res.status(200).redirect("/");
+        return res.status(200).end();
     } catch(err) {
         return res.status(500).send(err);
     }
