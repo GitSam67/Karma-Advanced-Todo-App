@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken");
 const User = require("./database/model/user");
 
 const authenticate = async (req,res,next) => {
-    try {
-        let token = localStorage.getItem('jwt');
+    if (req.cookies.jwt) {
+        const token = req.cookies.jwt;
         console.log(token);
         const verifyToken = jwt.verify(token, process.env.REFRESH_SECRET_KEY, (err, result)=>{
             if (err) {
@@ -35,7 +35,7 @@ const authenticate = async (req,res,next) => {
             next();
         }
     }
-    catch (err) {
+    else {
         req.user = "token expired";
         res.status(406);
         next();
