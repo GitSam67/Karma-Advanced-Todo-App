@@ -121,8 +121,6 @@ Router.post("/login", async (req, res) => {
 
 Router.post("/logout", async (req,res)=>{
     res.clearCookie('jwt', {
-        domain: "https://karma-server.onrender.com",
-        path: "/",
         httpOnly: true,
         secure: true,
     });
