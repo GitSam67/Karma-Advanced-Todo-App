@@ -121,7 +121,7 @@ Router.post("/login", async (req, res) => {
 });
 
 Router.post("/logout", async (req,res)=>{
-    res.cookie('jwt', "" ,{
+    res.clearCookie('jwt', "" ,{
         maxAge: new Date(Date.now(0)),
         domain: "https://karma-server.onrender.com",
         path: "/",
@@ -133,8 +133,9 @@ Router.post("/logout", async (req,res)=>{
         console.log("User logged out of the system...");
         return res.sendStatus(200);
     }
-    else
+    else {
         return res.sendStatus(400);
+    }
 });
 
 Router.get("/userprofile", auth, async (req,res)=>{
