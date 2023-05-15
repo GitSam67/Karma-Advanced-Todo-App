@@ -97,17 +97,17 @@ Router.post("/login", async (req, res) => {
             let refresh_token = await user.generateRefreshToken()
             console.log("Refresh token: \n" + refresh_token);
 
-            res.cookie('jwt', refresh_token, {
-                maxAge: new Date(Date.now() + 1000*60*60*24),
-                httpOnly: true,
-                secure: true,
-            });
+            // res.cookie('jwt', refresh_token, {
+            //     maxAge: new Date(Date.now() + 1000*60*60*24),
+            //     httpOnly: true,
+            //     secure: true,
+            // });
 
-            console.log(req.cookies);
-            if(req.cookies) {
+            // console.log(req.cookies);
+            // if(req.cookies) {
                 console.log("User logged in successfully");
-                return res.status(200).redirect("/");
-            }
+                return res.status(200).send(refresh_token);
+            // }
         }
         else {
             console.log("User login Unsuccessfull");

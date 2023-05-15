@@ -27,6 +27,8 @@ export default function Login() {
             });
 
             if (res.status === 200) {
+                const data = res.json();
+                console.log(data);
                 setOpenModal(true);
                 setEmail("");
                 setPassword("");
