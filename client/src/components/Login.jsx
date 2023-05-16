@@ -27,6 +27,9 @@ export default function Login() {
             });
 
             if (res.status === 200) {
+                const data = res.json();
+                console.log(data);
+                localStorage.setItem('token', 'hello token from sam..!!');
                 setOpenModal(true);
                 setEmail("");
                 setPassword("");
