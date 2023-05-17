@@ -109,7 +109,7 @@ Router.post("/login", async (req, res) => {
             // console.log(req.cookies);
             // if(req.cookies) {
                 console.log("User logged in successfully");
-                return res.status(200).send(req.token);
+                return res.status(200).send({token: req.token});
             // }
         }
         else {
