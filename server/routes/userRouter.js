@@ -140,6 +140,8 @@ Router.post("/logout", async (req,res)=>{
 
 Router.get("/userprofile", auth, async (req,res)=>{
     console.log("User profile");
+    console.log(req);
+    console.log(req.token);
     if (req.user == "token expired" || res.status == 406) {
         console.log(req.user);
         return res.status(406).send(req.user);

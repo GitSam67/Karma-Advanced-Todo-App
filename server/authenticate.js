@@ -2,9 +2,10 @@ const jwt = require("jsonwebtoken");
 const User = require("./database/model/user");
 
 const authenticate = async (req,res,next) => {
-    if (req.cookies.jwt) {
-        const token = req.cookies.jwt;
-        console.log(token);
+    if (req) {
+        console.log(req);
+        // token = req.token;
+        // console.log(token);
         const verifyToken = jwt.verify(token, process.env.REFRESH_SECRET_KEY, (err, result)=>{
             if (err) {
                 return 406;
