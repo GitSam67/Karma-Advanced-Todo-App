@@ -27,7 +27,8 @@ export default function Login() {
             });
 
             if (res.status === 200) {
-                const data = res.json();
+                const data = await res.json();
+                console.log(data);
                 console.log(data.token);
                 localStorage.setItem('token', data.token);
                 setOpenModal(true);
