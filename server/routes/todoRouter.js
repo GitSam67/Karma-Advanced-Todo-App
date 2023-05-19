@@ -23,7 +23,7 @@ async function foo() {
                 to: user.email,
                 subject: 'Reminder alert for your task..!!',
                 html: `<p><h2>Your task <b><u>${t.title}</u></b> with #id: ${t.pId} is due in a Month, so keep track of your work to finish it off on time..!!</h2></p>
-                <br/><h3>Click the link below to update your work status right away -> <a href="google.com" style="border-bottom:1px solid darkblue;">Navigate to your Task list</a></h3>
+                <br/><h3>Click the link below to update your work status right away -> <a href="https://karma-web.netlify.app/" style="border-bottom:1px solid darkblue;">Navigate to your Task list</a></h3>
                 <br/><h3><u>Note:</u></h3> <h4>If you missed the deadline for any of your task then it will be automatically deleted from database & reflected into your account.<h4>
                 <br/>Stay Productive, Be Relaxed...!!
                 <br/><br/>Regards, Karma.Pvt.Ltd`
@@ -42,7 +42,7 @@ async function foo() {
                 to: user.email,
                 subject: 'Reminder alert for your task..!!',
                 html: `<p><h2>Your task <b><u>${t.title}</u></b> with #id: ${t.pId} is due in 10 days, so keep track of your work to finish it off on time..!!</h2></p>
-                <br/><h3>Click the link below to update your work status right away -> <a href="http://127.0.0.1:5173/" style="border-bottom:1px solid darkblue;">Navigate to your Task list</a></h3>
+                <br/><h3>Click the link below to update your work status right away -> <a href="https://karma-web.netlify.app/" style="border-bottom:1px solid darkblue;">Navigate to your Task list</a></h3>
                 <br/><h3><u>Note:</u></h3> <h4>If you missed the deadline for any of your task then it will be automatically deleted from database & reflected into your account.<h4>
                 <br/>Stay Productive, Be Relaxed...!!
                 <br/><br/>Regards, Karma.Pvt.Ltd`
@@ -61,7 +61,7 @@ async function foo() {
                 to: user.email,
                 subject: 'Reminder alert for your task..!!',
                 html: `<p><h2>Your task <b><u>${t.title}</u></b> with #id: ${t.pId} is due in just a day, so keep track of your work to finish it off on time..!!</h2></p>
-                <br/><h3>Click the link below to update your work status right away -> <a href="google.com" style="border-bottom:1px solid darkblue;">Navigate to your Task list</a></h3>
+                <br/><h3>Click the link below to update your work status right away -> <a href="https://karma-web.netlify.app/" style="border-bottom:1px solid darkblue;">Navigate to your Task list</a></h3>
                 <br/><h3><u>Note:</u></h3> <h4>If you missed the deadline for any of your task then it will be automatically deleted from database & reflected into your account.<h4>
                 <br/>Stay Productive, Be Relaxed...!!
                 <br/><br/>Regards, Karma.Pvt.Ltd`
@@ -80,7 +80,7 @@ async function foo() {
                 to: user.email,
                 subject: 'Reminder alert for your task..!!',
                 html: `<p><h2>Just few hours left to complete your task <b><u>${t.title}</u></b> with #id: ${t.pId}, so keep track of your work to finish it off on time..!!</h2></p>
-                <br/><h3>Click the link below to update your work status right away -> <a href="google.com" style="border-bottom:1px solid darkblue;">Navigate to your Task list</a></h3>
+                <br/><h3>Click the link below to update your work status right away -> <a href="https://karma-web.netlify.app/" style="border-bottom:1px solid darkblue;">Navigate to your Task list</a></h3>
                 <br/><h3><u>Note:</u></h3> <h4>If you missed the deadline for any of your task then it will be automatically deleted from database & reflected into your account.<h4>
                 <br/>Stay Productive, Be Relaxed...!!
                 <br/><br/>Regards, Karma.Pvt.Ltd`

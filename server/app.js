@@ -13,7 +13,7 @@ require("./database/connect");
 
 app.use(cors({
     credentials: true,
-    origin: ["https://rococo-caramel-b187dc.netlify.app"]
+    origin: ["https://karma-web.netlify.app"]
 }));
 
 app.set('trust proxy', 1);

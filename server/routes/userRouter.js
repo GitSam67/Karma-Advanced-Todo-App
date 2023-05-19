@@ -113,6 +113,7 @@ Router.post("/login", async (req, res) => {
 
             // console.log(req.cookies);
             // if(req.cookies) {
+
                 console.log("User logged in successfully");
                 return res.status(200).send({token: req.token});
             // }
@@ -146,7 +147,6 @@ Router.post("/logout", async (req,res)=>{
 
 Router.get("/userprofile", auth, async (req,res)=>{
     console.log("User profile");
-    console.log(req);
     console.log(req.token);
     if (req.user == "token expired" || res.status == 406) {
         console.log(req.user);
@@ -227,27 +227,27 @@ Router.put("/imgRemove", auth, async (req,res) => {
     }
 })
 
-Router.post("/refresh", (req,res)=>{
-    if(req.cookies.jwt){
-        const refresh_token = req.cookies.jwt;
+// Router.post("/refresh", (req,res)=>{
+//     if(req.cookies.jwt){
+//         const refresh_token = req.cookies.jwt;
 
-        jwt.verify(refresh_token, process.env.REFRESH_SECRET_KEY, (err,success)=>{
-            if(err)
-                return res.status(406).json({Error: 'Unauthorized'});
-            else{
-                let access_token = jwt.sign({_id:this._id}, process.env.ACCESS_SECRET_KEY, {
-                    expiresIn: '10m'
-                });
-                console.log({Access_token: access_token});
-                console.log({Refresh_token: refresh_token});
-                return res.redirect("/");
-            }
-        });
+//         jwt.verify(refresh_token, process.env.REFRESH_SECRET_KEY, (err,success)=>{
+//             if(err)
+//                 return res.status(406).json({Error: 'Unauthorized'});
+//             else{
+//                 let access_token = jwt.sign({_id:this._id}, process.env.ACCESS_SECRET_KEY, {
+//                     expiresIn: '10m'
+//                 });
+//                 console.log({Access_token: access_token});
+//                 console.log({Refresh_token: refresh_token});
+//                 return res.redirect("/");
+//             }
+//         });
 
-    }
-    else{
-        res.status(406).json({Error: 'Unauthorized'});
-    }
-});
+//     }
+//     else{
+//         res.status(406).json({Error: 'Unauthorized'});
+//     }
+// });
 
 module.exports = Router;
