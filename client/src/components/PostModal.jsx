@@ -77,7 +77,7 @@ function PostModal({ closeModal, setTodos, pId, setPId, title, setTitle, desc, s
     return (
         <div className="Modal bg-gray-600 bg-opacity-70 z-20 w-screen h-full fixed flex justify-center items-center">
             <div className="ModalContainer relative md:w-1/2 w-5/6 rounded-md shadow-2xl p-5 pb-28 bg-white flex flex-col">
-                <div className="flex flex-col items-center md:pl-10 px-5">
+                <div className="flex flex-col items-center md:pl-10 pl-5">
                     <div className='w-full relative font-semibold bold text-3xl'>
                         <button id="close" onClick={close} className='px-3 pb-1 absolute rounded-lg md:right-2 right-0 top-0 hover:bg-gray-200'>x</button>
                     </div>

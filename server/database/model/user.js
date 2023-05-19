@@ -63,7 +63,7 @@ userSchema.pre('save', async function(next) {
 userSchema.methods.generateAccessToken = async function(){
     try{
         let access_token = jwt.sign({_id:this._id}, process.env.ACCESS_SECRET_KEY, {
-            expiresIn: '10m'
+            expiresIn: '1d'
         });
         await this.save();
         return access_token;
@@ -76,7 +76,7 @@ userSchema.methods.generateAccessToken = async function(){
 userSchema.methods.generateRefreshToken = async function(){
     try{
         let refresh_token = jwt.sign({_id:this._id}, process.env.REFRESH_SECRET_KEY, {
-            expiresIn: '1d'
+            expiresIn: '7d'
         });
         await this.save();
         return refresh_token;

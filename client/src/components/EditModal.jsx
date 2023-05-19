@@ -68,7 +68,7 @@ function EditModal({ closeModal, todoData, todos, setTodos, todoId, setTodoId, p
     return (
         <div className="Modal bg-gray-600 bg-opacity-70 z-20 w-screen h-full fixed flex justify-center items-center">
             <div className="ModalContainer relative md:w-1/2 w-5/6 rounded-md shadow-2xl p-5 pb-28 bg-white flex flex-col">
-                <div className="flex flex-col items-center md:pl-10 px-2">
+                <div className="flex flex-col items-center md:pl-10 pl-2">
                     <div className='w-full relative font-semibold bold text-3xl'>
                     <button id="close" onClick={close} className='px-3 pb-1 absolute rounded-lg right-2 hover:bg-gray-200'>x</button>
                     </div>
