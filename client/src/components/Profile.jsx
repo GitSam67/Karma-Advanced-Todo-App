@@ -164,7 +164,7 @@ export default function Profile() {
                                 </Tooltip>
                             </div>
                             <div className="text-center">
-                                <h1 className="text-2xl md:text-3xl mb-5 underline text-left font-medium title-font text-blue-700 ml-2">
+                                <h1 className="text-2xl md:text-3xl mb-5 underline md:text-left font-medium title-font text-blue-700 md:ml-2">
                                     {userData.username}
                                 </h1>
                                 <h1 className="text-2xl md:text-4xl font-medium title-font ">
