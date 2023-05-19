@@ -148,7 +148,7 @@ export default function Profile() {
                             <button onClick={redirect} className="absolute text-lg font-bold text-black top-0 right-1"><i class="fas fa-close text-3xl" /></button>
                         </Tooltip>
                         <div className="md:w-2/3 w-full flex flex-row items-center justify-start md:pl-5 pb-10 border-b-2 border-blue-500 rounded-lg md:mb-0 mb-10">
-                            <div className="md:w-fit w-3/4 flex flex-col items-center justify-center md:mx-5 md:px-2">
+                            <div className="md:w-fit w-2/3 flex flex-col items-center justify-center md:mx-5 md:px-2">
                                 <Tooltip placement="top" className="transition delay-40 ease-in duration-400 bg-white text-black" title={userData.img == "userImage" ? "" : "Click to remove"} arrow>
                                     <div onClick={removePic} className="max-w-xs max-h-xs rounded-full mb-5 object-cover flex flex-row items-center">
                                         {userData.img == "userImage" ? <img src="/assets/profile3.jpg" className="md:w-64 md:h-64 w-52 h-52 border-2 border-gray-200 shadow-xl rounded-full" alt="userimg" /> : <img src={imagePath} className="md:w-64 md:h-64 w-52 h-52 border-2 border-gray-200 shadow-xl rounded-full" alt="userimg" />}
@@ -209,7 +209,7 @@ export default function Profile() {
                         </div>
                         <div className="rounded-lg border-l-4 border-r-4 border-blue-500 py-10 grid md:grid-cols-2 grid-cols-1 gap-10 place-items-center w-full mb-20">
                             <div className="w-full text-left md:pl-24 px-2 my-2">
-                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Email: <span className="text-black md:text-2xl text-xl mx-1">{userData.email}</span></p>
+                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Email: <span className="text-black md:text-2xl text-xl md:mx-1 mx-auto">{userData.email}</span></p>
                             </div>
                             <div className="w-full text-left md:pl-16 px-2 my-2">
                                 <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Phone: <span className="text-black text-2xl mx-1">+91-{userData.phone}</span></p>
