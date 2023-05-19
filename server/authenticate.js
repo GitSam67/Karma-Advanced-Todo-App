@@ -8,10 +8,9 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 
 const authenticate = async (req,res,next) => {
     if (req) {
-        console.log(req);
         // token = req.token;
         let token = localStorage.getItem('token');
-        console.log(token);
+        console.log(token + ' auth_token');
         const verifyToken = jwt.verify(token, process.env.REFRESH_SECRET_KEY, (err, result)=>{
             if (err) {
                 return 406;

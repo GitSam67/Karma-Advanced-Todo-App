@@ -135,7 +135,7 @@ Router.post("/logout", async (req,res)=>{
     //     sameSite: 'none',
     // });
     localStorage.removeItem('token');
-    if(localStorage.getItem('token')==NULL) {
+    if(localStorage.getItem('token') == null) {
         console.log("User logged out of the system...");
         return res.sendStatus(200);
     }
