@@ -1,11 +1,15 @@
 const jwt = require("jsonwebtoken");
+const {localStorage, LocalStorage} = require("node-localstorage");
 const User = require("./database/model/user");
+
+var localStorage = new LocalStorage("./scratch");
 
 const authenticate = async (req,res,next) => {
     if (req) {
         console.log(req);
         // token = req.token;
-        // console.log(token);
+        let token = localStorage.getItem('token');
+        console.log(token);
         const verifyToken = jwt.verify(token, process.env.REFRESH_SECRET_KEY, (err, result)=>{
             if (err) {
                 return 406;

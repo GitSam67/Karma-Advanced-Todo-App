@@ -73,7 +73,7 @@ async function foo() {
                     console.log("Email sent to client" + info.response);
             })
         }
-        else if (Math.round((new Date(t.date) - new Date())/(1000*60*60)) <= 2) {
+        else if (Math.round((new Date(t.date) - new Date())/(1000*60*60)) > 0 && Math.round((new Date(t.date) - new Date())/(1000*60*60)) <= 2) {
             const user = await User.findOne({_id: t.userId});
             let mailOptions = {
                 from: 'karma.web.pvt.ltd@gmail.com',

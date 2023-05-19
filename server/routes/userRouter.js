@@ -5,8 +5,11 @@ const multer = require("multer");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
+const {localStorage, LocalStorage} = require("node-localstorage");
 const User = require("../database/model/user");
 const auth = require("../authenticate");
+
+var localStorage = new LocalStorage("./scratch");
 
 const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -18,7 +21,7 @@ const transporter = nodemailer.createTransport({
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, "uploads/");
+        cb(null, "uploads");
     },
     filename: (req, file, cb) => {
         cb(null, Date.now()+file.originalname );
@@ -97,7 +100,7 @@ Router.post("/login", async (req, res) => {
             let refresh_token = await user.generateRefreshToken()
             console.log("Refresh token: \n" + refresh_token);
 
-            req.token = refresh_token;
+            localStorage.setItem('token', refresh_token);
 
             // res.cookie('jwt', refresh_token, {
             //     maxAge: new Date(Date.now() + 1000*60*60*24),
@@ -123,13 +126,14 @@ Router.post("/login", async (req, res) => {
 });
 
 Router.post("/logout", async (req,res)=>{
-    res.clearCookie('jwt', {
-        path: "/",
-        httpOnly: true,
-        secure: true,
-        sameSite: 'none',
-    });
-    if(!req.cookies.jwt) {
+    // res.clearCookie('jwt', {
+    //     path: "/",
+    //     httpOnly: true,
+    //     secure: true,
+    //     sameSite: 'none',
+    // });
+    localStorage.removeItem('token');
+    if(localStorage.getItem('token')==NULL) {
         console.log("User logged out of the system...");
         return res.sendStatus(200);
     }
