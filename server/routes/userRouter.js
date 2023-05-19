@@ -8,11 +8,6 @@ const nodemailer = require("nodemailer");
 const User = require("../database/model/user");
 const auth = require("../authenticate");
 
-if (typeof localStorage === "undefined" || localStorage === null) {
-    var LocalStorage = require('node-localstorage').LocalStorage;
-    localStorage = new LocalStorage('./scratch');
-}
-
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -102,8 +97,6 @@ Router.post("/login", async (req, res) => {
             let refresh_token = await user.generateRefreshToken()
             console.log("Refresh token: \n" + refresh_token);
 
-            localStorage.setItem('token', refresh_token);
-
             // res.cookie('jwt', refresh_token, {
             //     maxAge: new Date(Date.now() + 1000*60*60*24),
             //     httpOnly: true,
@@ -128,24 +121,24 @@ Router.post("/login", async (req, res) => {
     }
 });
 
-Router.post("/logout", async (req,res)=>{
-    // res.clearCookie('jwt', {
-    //     path: "/",
-    //     httpOnly: true,
-    //     secure: true,
-    //     sameSite: 'none',
-    // });
-    localStorage.removeItem('token');
-    if(localStorage.getItem('token') == null) {
-        console.log("User logged out of the system...");
-        return res.sendStatus(200);
-    }
-    else {
-        return res.sendStatus(400);
-    }
-});
+// Router.post("/logout", async (req,res)=>{
+//     // res.clearCookie('jwt', {
+//     //     path: "/",
+//     //     httpOnly: true,
+//     //     secure: true,
+//     //     sameSite: 'none',
+//     // });
+//     localStorage.removeItem('token');
+//     if(localStorage.getItem('token') == null) {
+//         console.log("User logged out of the system...");
+//         return res.sendStatus(200);
+//     }
+//     else {
+//         return res.sendStatus(400);
+//     }
+// });
 
-Router.get("/userprofile", auth, async (req,res)=>{
+Router.get("/userprofile", async (req,res)=>{
     console.log("User profile");
     console.log(req.token);
     if (req.user == "token expired" || res.status == 406) {
