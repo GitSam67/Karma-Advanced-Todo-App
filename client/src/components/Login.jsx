@@ -103,10 +103,10 @@ export default function Login() {
                         { !spinner ? 
                             <button
                                 type="submit"
-                                className="w-28 md:h-10 h-8 text-white font-semibold flex items-center justify-center bg-green-600 border-0 py-2 px-6 mt-5 focus:outline-none hover:bg-green-700 rounded text-xl">
+                                className="w-28 h-10 text-white font-semibold flex items-center justify-center bg-green-600 border-0 py-2 px-6 mt-5 focus:outline-none hover:bg-green-700 rounded text-xl">
                                 Log In
                             </button>
-                            : <div className="w-28 md:h-10 h-8 text-white flex items-center justify-center bg-green-500 border-0 py-2 px-6 mt-5 focus:outline-none rounded text-xl">
+                            : <div className="w-28 h-10 text-white flex items-center justify-center bg-green-500 border-0 py-2 px-6 mt-5 focus:outline-none rounded text-xl">
                                 <div className="spinner rounded-full w-6 h-6 bg-transparent border-t-2 border-white font-bold"></div>
                             </div>
                         }
