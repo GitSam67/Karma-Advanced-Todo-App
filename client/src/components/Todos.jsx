@@ -275,7 +275,7 @@ export default function Todos() {
                                         <div id="show" onClick={() => submitTodo(todo._id)} className="absolute w-7 h-7 p-1 px-3 rounded-full border-2 border-white text-lg top-2 right-2 bg-gray-100 cursor-pointer font-bold text-center"><span className="absolute right-0 top-0 invisible">✔</span></div>
                                     </Tooltip>
                                 }
-                                <div className="w-full mb-5 px-10 text-center">
+                                <div className="w-full mb-5 md:px-10 px-5 text-center">
                                     <p className="md:text-2xl text-xl font-bold"><span className="border-b-2 border-gray-300 rounded-lg">* {todo.title} *</span></p>
                                 </div>
                                 <p className="w-fit mb-3 md:text-xl text-lg font-sans">{todo.desc}</p>

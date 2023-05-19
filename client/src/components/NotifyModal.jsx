@@ -71,7 +71,7 @@ function NotifyModal({ closeModal, todos }) {
                                 return (
                                     <div className="relative md:w-96 w-80 h-fit rounded-lg pb-5 pt-2 mb-5 text-left px-10 text-white bg-indigo-600 shadow-2xl" key={todo._id}>
                                         <div className="absolute w-fit h-fit rounded-lg p-1 px-3 md:text-2xl text-xl title-font border-b-2 border-r-2 border-white top-0 left-1 cursor-pointer font-bold">#{todo.pId}</div>
-                                        <div className="w-full mb-5 px-10 text-center">
+                                        <div className="w-full mb-5 md:px-10 px-5 text-center">
                                             <p className="md:text-2xl text-xl font-bold"><span className="border-b-2 border-gray-300 rounded-lg">* {todo.title} *</span></p>
                                         </div>
                                         <p className="w-fit mb-3 md:text-xl text-lg font-sans">{todo.desc}</p>
