@@ -148,7 +148,7 @@ export default function Profile() {
                             <button onClick={redirect} className="absolute text-lg font-bold text-black top-0 right-1"><i class="fas fa-close text-3xl" /></button>
                         </Tooltip>
                         <div className="md:w-2/3 w-full flex flex-row items-center justify-start md:pl-5 pb-10 border-b-2 border-blue-500 rounded-lg md:mb-0 mb-10">
-                            <div className="md:w-fit w-1/2 flex flex-col items-center justify-center md:mx-5 mx-0 md:px-2 px-0">
+                            <div className="md:w-fit w-2/3 flex flex-col items-center justify-center md:mx-5 mx-0 md:px-2 px-0">
                                 <Tooltip placement="top" className="transition delay-40 ease-in duration-400 bg-white text-black" title={userData.img == "userImage" ? "" : "Click to remove"} arrow>
                                     <div onClick={removePic} className="max-w-xs max-h-xs rounded-full mb-5 object-cover flex flex-row items-center">
                                         {userData.img == "userImage" ? <img src="/assets/profile3.jpg" className="md:w-64 md:h-64 w-52 h-52 border-2 border-gray-200 shadow-xl rounded-full" alt="userimg" /> : <img src={imagePath} className="md:w-64 md:h-64 w-52 h-52 border-2 border-gray-200 shadow-xl rounded-full" alt="userimg" />}
