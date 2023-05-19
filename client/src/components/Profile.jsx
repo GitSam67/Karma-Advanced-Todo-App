@@ -163,7 +163,7 @@ export default function Profile() {
                                 </div>
                                 </Tooltip>
                             </div>
-                            <div className="text-center">
+                            <div className="sm:w-1/3 text-center">
                                 <h1 className="text-2xl md:text-3xl mb-5 underline text-left font-medium title-font text-blue-700 md:ml-2 ml-7">
                                     {userData.username}
                                 </h1>
@@ -209,7 +209,7 @@ export default function Profile() {
                         </div>
                         <div className="rounded-lg border-l-4 border-r-4 border-blue-500 py-10 grid md:grid-cols-2 grid-cols-1 gap-10 place-items-center w-full mb-20">
                             <div className="w-full text-left md:pl-24 px-2 my-2">
-                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Email: <span className="text-black md:text-2xl text-xl md:mx-1 mx-auto">{userData.email}</span></p>
+                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Email: <span className="text-black md:text-2xl text-xl md:mx-1 ml-10">{userData.email}</span></p>
                             </div>
                             <div className="w-full text-left md:pl-16 px-2 my-2">
                                 <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Phone: <span className="text-black text-2xl mx-1">+91-{userData.phone}</span></p>
