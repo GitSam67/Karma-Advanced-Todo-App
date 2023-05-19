@@ -148,7 +148,7 @@ export default function Profile() {
                             <button onClick={redirect} className="absolute text-lg font-bold text-black top-0 right-1"><i class="fas fa-close text-3xl" /></button>
                         </Tooltip>
                         <div className="md:w-2/3 w-full flex flex-row items-center justify-start md:pl-5 pb-10 border-b-2 border-blue-500 rounded-lg md:mb-0 mb-10">
-                            <div className="md:w-fit w-2/3 flex flex-col items-center justify-center md:mx-5 md:px-2">
+                            <div className="md:w-fit w-1/2 flex flex-col items-center justify-center md:mx-5 mx-0 md:px-2 px-0">
                                 <Tooltip placement="top" className="transition delay-40 ease-in duration-400 bg-white text-black" title={userData.img == "userImage" ? "" : "Click to remove"} arrow>
                                     <div onClick={removePic} className="max-w-xs max-h-xs rounded-full mb-5 object-cover flex flex-row items-center">
                                         {userData.img == "userImage" ? <img src="/assets/profile3.jpg" className="md:w-64 md:h-64 w-52 h-52 border-2 border-gray-200 shadow-xl rounded-full" alt="userimg" /> : <img src={imagePath} className="md:w-64 md:h-64 w-52 h-52 border-2 border-gray-200 shadow-xl rounded-full" alt="userimg" />}
@@ -163,11 +163,11 @@ export default function Profile() {
                                 </div>
                                 </Tooltip>
                             </div>
-                            <div className="md:w-fit w-1/3 text-center">
-                                <h1 className="text-2xl md:text-3xl mb-5 underline text-left font-medium title-font text-blue-700 md:ml-2 ml-7">
+                            <div className="text-center">
+                                <h1 className="text-2xl md:text-3xl mb-5 underline text-left font-medium title-font text-blue-700 ml-2">
                                     {userData.username}
                                 </h1>
-                                <h1 className="text-3xl md:text-4xl font-medium title-font">
+                                <h1 className="text-2xl md:text-4xl font-medium title-font ">
                                     {userData.name}
                                 </h1>
                             </div>
@@ -212,13 +212,13 @@ export default function Profile() {
                                 <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Email: <span className="text-black md:text-2xl text-xl md:mx-1 ml-7">{userData.email}</span></p>
                             </div>
                             <div className="w-full text-left md:pl-16 px-2 my-2">
-                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Phone: <span className="text-black text-2xl mx-1">+91-{userData.phone}</span></p>
+                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> Phone: <span className="text-black md:text-2xl text-xl mx-1">+91-{userData.phone}</span></p>
                             </div>
                             <div className="w-full text-left md:pl-24 px-2 my-2">
-                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> DOB: <span className="text-black text-2xl mx-1">{userData.dob}</span></p>
+                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> DOB: <span className="text-black md:text-2xl text-xl mx-1">{userData.dob}</span></p>
                             </div>
                             <div className="w-full text-left md:pl-16 px-2 my-2">
-                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> City: <span className="text-black text-2xl mx-1">{userData.city}</span></p>
+                                <p className="title-font font-semibold tracking-wide text-blue-700 md:text-2xl text-xl"><span className="mx-1"> ◈ </span> City: <span className="text-black md:text-2xl text-xl mx-1">{userData.city}</span></p>
                             </div>
                         </div>
                     </div>
