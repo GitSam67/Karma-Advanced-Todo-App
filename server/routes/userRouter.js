@@ -5,11 +5,13 @@ const multer = require("multer");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
-const {localStorage, LocalStorage} = require("node-localstorage");
 const User = require("../database/model/user");
 const auth = require("../authenticate");
 
-var localStorage = new LocalStorage("./scratch");
+if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+}
 
 const transporter = nodemailer.createTransport({
     service: "gmail",

@@ -1,8 +1,10 @@
 const jwt = require("jsonwebtoken");
-const {localStorage, LocalStorage} = require("node-localstorage");
 const User = require("./database/model/user");
 
-var localStorage = new LocalStorage("./scratch");
+if (typeof localStorage === "undefined" || localStorage === null) {
+    var LocalStorage = require('node-localstorage').LocalStorage;
+    localStorage = new LocalStorage('./scratch');
+}
 
 const authenticate = async (req,res,next) => {
     if (req) {
