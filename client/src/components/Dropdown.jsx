@@ -10,21 +10,23 @@ function Dropdown() {
     e.preventDefault();
 
     try {
+      
+      localStorage.removeItem('token');
 
-      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/logout`, {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-      },
-      });
+      // const res = await fetch(`${import.meta.env.VITE_BASE_URL}/logout`, {
+      //   method: "POST",
+      //   credentials: "include",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "Accept": "application/json",
+      // },
+      // });
 
-      console.log(res);
+      // console.log(res);
 
-      if (res.status === 200) {
-        Navigate("/");
+      if (localStorage.getItem('token') == null) {
         window.location.reload(false);
+        Navigate("/");
       }
       else {
         alert("Logout action failed..!! Try again");
