@@ -151,7 +151,7 @@ Router.get("/userprofile/:token", auth, async (req,res)=>{
         return res.status(200).send(req.user);
 });
 
-Router.put("/userprofile", auth, async (req,res)=> {
+Router.put("/userprofile", async (req,res)=> {
     const { username, name, email, phone, dob, city, userId } = req.body;
     const user = await User.findOne({ _id: userId });
     user.username = username;
@@ -196,7 +196,7 @@ Router.post("/sendEmail", async (req,res) => {
         }
 });
 
-Router.put("/imgUpload", auth, upload.single("image"), async (req,res) => {
+Router.put("/imgUpload", upload.single("image"), async (req,res) => {
     const { userId } = req.body;
     const user = await User.findOne({ _id: userId });
     user.img = (req.file) ? req.file.filename : "userImage";
@@ -209,7 +209,7 @@ Router.put("/imgUpload", auth, upload.single("image"), async (req,res) => {
     }
 })
 
-Router.put("/imgRemove", auth, async (req,res) => {
+Router.put("/imgRemove", async (req,res) => {
     const { userId } = req.body;
     const user = await User.findOne({ _id: userId });
     user.img = "userImage";

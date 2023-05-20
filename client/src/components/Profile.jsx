@@ -23,23 +23,9 @@ export default function Profile() {
 
     const displayProfile = async () => {
         try {
-            const res = await fetch(`${import.meta.env.VITE_BASE_URL}/userprofile`, {
-                method: "GET",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json"
-                },
-                credentials: "include"
-            });
-            if (res.status == 200) {
-                const data = await res.json();
-
-                console.log(data);
-                setUserId(data._id);
-                setUserData(data);
-                setImagePath(import.meta.env.VITE_IMG_PATH+data.img);
-
-                const response = await fetch(`${import.meta.env.VITE_BASE_URL}/count/` + data._id, {
+            let token = localStorage.getItem('token');
+            if (token) {
+                const res = await fetch(`${import.meta.env.VITE_BASE_URL}/userprofile/` + token, {
                     method: "GET",
                     headers: {
                         Accept: "application/json",
@@ -47,12 +33,32 @@ export default function Profile() {
                     },
                     credentials: "include"
                 });
-                const count = await response.json();
-                console.log(count);
+                if (res.status == 200) {
+                    const data = await res.json();
 
-                setPending(count);
-                setRatio(Math.round(data.completedTasks / data.totalTasks * 100));
+                    console.log(data);
+                    setUserId(data._id);
+                    setUserData(data);
+                    setImagePath(import.meta.env.VITE_IMG_PATH + data.img);
 
+                    const response = await fetch(`${import.meta.env.VITE_BASE_URL}/count/` + data._id, {
+                        method: "GET",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        credentials: "include"
+                    });
+                    const count = await response.json();
+                    console.log(count);
+
+                    setPending(count);
+                    setRatio(Math.round(data.completedTasks / data.totalTasks * 100));
+
+                }
+                else {
+                    Navigate("/Login");
+                }
             }
             else {
                 Navigate("/Login");
@@ -95,7 +101,7 @@ export default function Profile() {
 
     const handleChange = (e) => {
         e.preventDefault();
-        
+
         setImageBlob(URL.createObjectURL(e.target.files[0]));
         setImage(e.target.files[0]);
 
@@ -114,29 +120,29 @@ export default function Profile() {
             <section id="profile" className="bg-blue-100 pb-20">
                 <nav className="relative z-10 bg-white border-t-2 border-gray-700 rounded-md shadow-xl sticky top-0 left-0 md:flex flex-row items-center w-full py-3 md:px-6 pl-3">
                     <div className="w-full flex items-center">
-                    <div className='md:w-1/3 w-1/2 font-bold text-3xl cursor-pointer flex items-center text-left'>
-                        <NavLink className="flex flex-row items-center" to="/">
-                            <img src="/assets/logo.jpeg" className="mainlogo h-10 w-10 rounded-full mr-3" alt="logo" />
-                            <span className="text-blue-800 font-sans">Karma</span>
-                        </NavLink>
-                    </div>
-
-                    <div className="md:w-1/3 flex flex-row text-xl font-bold justify-center items-center py-2 md:flex hidden">
-                        {userData.name}'s Profile
-                    </div>
-
-                    <div className="md:w-1/3 w-1/2 flex flex-row justify-end">
-                        <div className="w-fit h-fit flex flex-row items-center justify-end">
-                            <div onClick={() => setDrop(!drop)} ref={dropRef} className="flex flex-row items-center justify-center mx-2 cursor-pointer">
-                                <button className="relative rounded-full w-fit h-fit object-cover mx-1">
-                                    {userData.img == "userImage" ? <img src="/assets/profile2.jpg" className="w-10 h-10 rounded-full" alt="userimg" /> : <img src={imagePath} className="w-10 h-10 rounded-full" alt="userimg" />}
-                                    {drop && <Dropdown />}
-                                </button>
-                                <i className="fa fa-caret-down"></i>
-                            </div>
-                            <div className="font-title font-bold text-xl mr-5 border-b-2 border-gray-100 cursor-default">{userData.username}</div>
+                        <div className='md:w-1/3 w-1/2 font-bold text-3xl cursor-pointer flex items-center text-left'>
+                            <NavLink className="flex flex-row items-center" to="/">
+                                <img src="/assets/logo.jpeg" className="mainlogo h-10 w-10 rounded-full mr-3" alt="logo" />
+                                <span className="text-blue-800 font-sans">Karma</span>
+                            </NavLink>
                         </div>
-                    </div>
+
+                        <div className="md:w-1/3 flex flex-row text-xl font-bold justify-center items-center py-2 md:flex hidden">
+                            {userData.name}'s Profile
+                        </div>
+
+                        <div className="md:w-1/3 w-1/2 flex flex-row justify-end">
+                            <div className="w-fit h-fit flex flex-row items-center justify-end">
+                                <div onClick={() => setDrop(!drop)} ref={dropRef} className="flex flex-row items-center justify-center mx-2 cursor-pointer">
+                                    <button className="relative rounded-full w-fit h-fit object-cover mx-1">
+                                        {userData.img == "userImage" ? <img src="/assets/profile2.jpg" className="w-10 h-10 rounded-full" alt="userimg" /> : <img src={imagePath} className="w-10 h-10 rounded-full" alt="userimg" />}
+                                        {drop && <Dropdown />}
+                                    </button>
+                                    <i className="fa fa-caret-down"></i>
+                                </div>
+                                <div className="font-title font-bold text-xl mr-5 border-b-2 border-gray-100 cursor-default">{userData.username}</div>
+                            </div>
+                        </div>
                     </div>
                 </nav>
                 <div className="container bg-white rounded-lg px-5 pt-5 my-5 shadow-2xl mx-auto flex flex-col items-center justify-center">
@@ -155,12 +161,12 @@ export default function Profile() {
                                     </div>
                                 </Tooltip>
                                 <Tooltip className="transition delay-40 ease-in duration-400 bg-white text-black" title="Choose image" arrow>
-                                <div className="flex flex-row mx-auto">
-                                    <label htmlFor="file" className="w-fit h-fit sm:text-lg text-md font-mono font-bold p-2 text-white rounded-md bg-gray-500 hover:bg-gray-600 cursor-pointer">
-                                        Edit Pic
-                                        <input type="file" id="file" name="image" onChange={handleChange} accept="image/*" hidden />
-                                    </label>
-                                </div>
+                                    <div className="flex flex-row mx-auto">
+                                        <label htmlFor="file" className="w-fit h-fit sm:text-lg text-md font-mono font-bold p-2 text-white rounded-md bg-gray-500 hover:bg-gray-600 cursor-pointer">
+                                            Edit Pic
+                                            <input type="file" id="file" name="image" onChange={handleChange} accept="image/*" hidden />
+                                        </label>
+                                    </div>
                                 </Tooltip>
                             </div>
                             <div className="text-center">

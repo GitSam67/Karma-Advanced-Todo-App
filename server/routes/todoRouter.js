@@ -98,7 +98,7 @@ async function foo() {
 setTimeout(foo, 1000);
 setInterval(foo, 1000*60*60*24);
 
-router.get("/todos/:id", auth, async (req, res) => {
+router.get("/todos/:id", async (req, res) => {
 
     const todos = await Todo.find({userId : req.params.id});
     if (todos) {
@@ -111,12 +111,12 @@ router.get("/todos/:id", auth, async (req, res) => {
     }
 });
 
-router.get("/count/:id", auth, async (req, res) => {
+router.get("/count/:id", async (req, res) => {
     const count = await Todo.countDocuments({userId: req.params.id});
     res.status(200).send(String(count));
 });
 
-router.post("/todos", auth, async (req, res) => {
+router.post("/todos", async (req, res) => {
 
     const { pId, title, desc, date, time, userId } = req.body;
 
@@ -155,7 +155,7 @@ router.post("/todos", auth, async (req, res) => {
 
 });
 
-router.put("/todos", auth, async (req, res) => {
+router.put("/todos", async (req, res) => {
     const { pId, title, desc, date, time, todoId } = req.body;
     const todo = await Todo.findOne({ _id: todoId });
     todo.pId = pId;
@@ -172,7 +172,7 @@ router.put("/todos", auth, async (req, res) => {
     }
 });
 
-router.delete("/todos", auth, async (req, res) => {
+router.delete("/todos", async (req, res) => {
     const { todoId } = req.body;
 
     const response = await Todo.findOneAndDelete({ _id: todoId });
@@ -184,7 +184,7 @@ router.delete("/todos", auth, async (req, res) => {
     }
 });
 
-router.delete("/deleteDueTodo", auth, async (req, res) => {
+router.delete("/deleteDueTodo", async (req, res) => {
     const { dueTaskId, userId } = req.body;
     const response = await Todo.findOneAndDelete({ _id: dueTaskId });
     if (response) {
@@ -199,7 +199,7 @@ router.delete("/deleteDueTodo", auth, async (req, res) => {
     }
 });
 
-router.delete("/submitTask", auth, async (req, res) => {
+router.delete("/submitTask", async (req, res) => {
     const { todoId, userId } = req.body;
 
     const user = await User.findOneAndUpdate({_id:userId},{"$inc":{"completedTasks":1}},{new:true});
