@@ -1,17 +1,11 @@
 const jwt = require("jsonwebtoken");
 const User = require("./database/model/user");
 
-if (typeof localStorage === "undefined" || localStorage === null) {
-    var LocalStorage = require('node-localstorage').LocalStorage;
-    localStorage = new LocalStorage('./scratch');
-}
-
 const authenticate = async (req,res,next) => {
-    if (req) {
-        // token = req.token;
-        let token = localStorage.getItem('token');
-        console.log(token + ' auth_token');
-        const verifyToken = jwt.verify(token, process.env.REFRESH_SECRET_KEY, (err, result)=>{
+    try {
+        const auth_token = req.params.token;
+        console.log(auth_token + ' auth_token');
+        const verifyToken = jwt.verify(auth_token, process.env.REFRESH_SECRET_KEY, (err, result)=>{
             if (err) {
                 return 406;
             }
@@ -33,7 +27,7 @@ const authenticate = async (req,res,next) => {
             if(!user)
                 throw new Error("User not found")
 
-            req.token = token;
+            req.token = auth_token;
             req.user = user;
             req.userId = user._id;
             console.log(user);
@@ -41,10 +35,10 @@ const authenticate = async (req,res,next) => {
             next();
         }
     }
-    else {
+    catch (err) {
         req.user = "token expired";
         res.status(406);
-        next();
+        next(err);
     }
 
 }

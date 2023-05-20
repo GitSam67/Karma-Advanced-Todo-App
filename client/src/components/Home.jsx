@@ -7,7 +7,8 @@ export default function Home() {
   
   const displayUser = async () => {
      try { 
-      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/userprofile`, {
+      let token = localStorage.getItem('token');
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/userprofile/`+token, {
           method: "GET",
           headers: {
             Accept: "application/json",

@@ -97,6 +97,8 @@ Router.post("/login", async (req, res) => {
             let refresh_token = await user.generateRefreshToken()
             console.log("Refresh token: \n" + refresh_token);
 
+            req.token = refresh_token;
+
             // res.cookie('jwt', refresh_token, {
             //     maxAge: new Date(Date.now() + 1000*60*60*24),
             //     httpOnly: true,
@@ -138,7 +140,7 @@ Router.post("/login", async (req, res) => {
 //     }
 // });
 
-Router.get("/userprofile", async (req,res)=>{
+Router.get("/userprofile/:token", auth, async (req,res)=>{
     console.log("User profile");
     console.log(req.token);
     if (req.user == "token expired" || res.status == 406) {
