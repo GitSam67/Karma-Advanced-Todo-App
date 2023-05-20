@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const userRouter = require("./routes/userRouter");
 const todoRouter = require("./routes/todoRouter");
 const app = express();
+const path = require("path");
 const cors = require("cors");
 const PORT = process.env.PORT || 8000;
 
@@ -20,7 +21,7 @@ app.set('trust proxy', 1);
 
 app.use(express.json());
 app.use(cookieparser());
-app.use("/uploads", express.static('uploads'));
+app.use("/uploads", express.static(path.resolve('./uploads')));
 
 app.get("/", (req,res)=>{
     res.send("Hello server...");
