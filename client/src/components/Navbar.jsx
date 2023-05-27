@@ -88,8 +88,8 @@ export default function Navbar() {
             <div className="ml-3 absolute md:right-14 flex flex-row">
               {loginState ?
                 <div className="w-fit h-fit flex flex-row items-center justify-end">
-                  <div onClick={() => setDrop(!drop)} ref={dropRef} className="flex flex-row items-center justify-center mx-2 cursor-pointer">
-                    <button className="relative rounded-full w-fit h-fit object-cover mx-2">
+                  <div onClick={() => setDrop(!drop)} ref={dropRef} className="flex flex-row items-center justify-center mx-1 cursor-pointer">
+                    <button className="relative rounded-full w-fit h-fit object-cover mx-1">
                       {userData.img == "userImage" ? <img src="/assets/profile2.jpg" className="w-10 h-10 rounded-full" alt="userimg" /> : <img src={imagePath} className="w-10 h-10 rounded-full" alt="userimg" />}
                       {drop && <Dropdown />}
                     </button>

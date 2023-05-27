@@ -212,9 +212,9 @@ export default function Todos() {
                                         {userData.img == "userImage" ? <img src="/assets/profile2.jpg" className="w-10 h-10 rounded-full" alt="userimg" /> : <img src={imagePath} className="w-10 h-10 rounded-full" alt="userimg" />}
                                         {drop && <Dropdown />}
                                     </button>
+                                    <div className="font-title font-bold text-xl mx-1 border-b-2 border-gray-100 cursor-default">{userData.username}</div>
                                     <i className="fa fa-caret-down"></i>
                                 </div>
-                                <div className="font-title font-bold text-xl mr-5 border-b-2 border-gray-100 cursor-default">{userData.username}</div>
                             </div>
                         </div>
                     </div>
