@@ -89,13 +89,13 @@ export default function Navbar() {
               {loginState ?
                 <div className="w-fit h-fit flex flex-row items-center justify-end">
                   <div onClick={() => setDrop(!drop)} ref={dropRef} className="flex flex-row items-center justify-center mx-2 cursor-pointer">
-                    <button className="relative rounded-full w-fit h-fit object-cover mx-1">
+                    <button className="relative rounded-full w-fit h-fit object-cover mx-2">
                       {userData.img == "userImage" ? <img src="/assets/profile2.jpg" className="w-10 h-10 rounded-full" alt="userimg" /> : <img src={imagePath} className="w-10 h-10 rounded-full" alt="userimg" />}
                       {drop && <Dropdown />}
                     </button>
+                    <div className="font-title font-bold text-xl border-b-2 border-gray-100 mx-1 cursor-default">{userData.username}</div>
                     <i className="fa fa-caret-down"></i>
                   </div>
-                  <div className="font-title font-bold text-xl border-b-2 border-gray-100 cursor-default">{userData.username}</div>
                 </div>
                 :
                 <div className="w-fit h-fit md:ml-0 ml-6 bg-blue-700 rounded-lg p-2 px-3 hover:bg-blue-600">
